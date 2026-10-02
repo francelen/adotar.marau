@@ -1,0 +1,13 @@
+SITE ADOTAR MARAU — VERSÃO ATUALIZADA
+
+Alterações realizadas:
+- título e texto introdutório atualizados para “Ajude a transformar vidas”;
+- QR Codes reduzidos visualmente;
+- chaves Pix ocultadas da tela, mantendo apenas o botão “COPIAR CHAVE PIX”;
+- mantidos os valores de R$ 2,00 e R$ 5,00;
+- adicionados os valores de R$ 10,00, R$ 15,00 e R$ 20,00;
+- adicionada a opção “Doe outro valor”, permitindo que a pessoa informe o valor desejado;
+- o botão de cópia gera a chave Pix correspondente ao valor informado.
+
+Observação:
+- Os espaços dos QR Codes continuam como “QR Code em breve”, pois a versão original do site não continha os QR Codes definitivos.
