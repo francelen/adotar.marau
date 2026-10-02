@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f28a2e">
+  <title>Ajude a transformar vidas | Adotar Marau</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #4a2815;
+      background: #f8f3ec;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,.84), rgba(255,255,255,.84)),
+        url("assets/fundo.jpg") center top / cover no-repeat;
+      opacity: .72;
+      z-index: -1;
+    }
+
+    .page {
+      width: min(100%, 480px);
+      margin: 0 auto;
+      padding: 22px 18px 38px;
+    }
+
+    .logo {
+      display: block;
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      margin: 0 auto 4px;
+    }
+
+    .intro {
+      text-align: center;
+      background: rgba(255,255,255,.84);
+      border-radius: 22px;
+      padding: 18px 17px;
+      box-shadow: 0 5px 18px rgba(92, 48, 20, .10);
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      color: #c85c12;
+      font-size: 24px;
+      line-height: 1.15;
+    }
+
+    .intro p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .card {
+      background: rgba(255,255,255,.93);
+      border: 2px solid rgba(242,138,46,.42);
+      border-radius: 24px;
+      padding: 18px 16px 17px;
+      margin: 14px 0;
+      text-align: center;
+      box-shadow: 0 7px 20px rgba(92,48,20,.12);
+    }
+
+    .amount {
+      margin: 0 0 12px;
+      color: #b64f0b;
+      font-size: 27px;
+      font-weight: 800;
+    }
+
+    .qr {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 13px;
+      background: white;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #eadfd4;
+      overflow: hidden;
+    }
+
+    .qr img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .placeholder {
+      padding: 20px;
+      font-size: 13px;
+      line-height: 1.4;
+      color: #806b5c;
+    }
+
+    .pix-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #775543;
+      margin-bottom: 6px;
+    }
+
+    .key {
+      width: 100%;
+      border: 1px solid #dccabc;
+      background: #faf7f3;
+      border-radius: 11px;
+      padding: 10px;
+      font-size: 12px;
+      color: #593522;
+      overflow-wrap: anywhere;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 13px;
+      padding: 13px 15px;
+      background: #ed7924;
+      color: white;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(194, 87, 17, .22);
+    }
+
+    button:active { transform: scale(.99); }
+
+
+
+    .pix-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+
+    .custom-note {
+      font-size: 12px;
+      color: #806b5c;
+      margin: -4px 0 10px;
+    }
+
+    .copied {
+      display: block;
+      min-height: 18px;
+      margin-top: 7px;
+      color: #4e8b3b;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      color: #795a46;
+      font-size: 12px;
+      margin-top: 22px;
+    }
+
+    @media (max-width: 360px) {
+      .page { padding-left: 13px; padding-right: 13px; }
+      .logo { width: 125px; height: 125px; }
+      .qr { width: 130px; height: 130px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <img class="logo" src="assets/logo.png" alt="Adotar Marau">
+
+    <section class="intro">
+      <h1>Ajude a transformar vidas 🐾</h1>
+      <p>
+        Cada contribuição ajuda a oferecer alimentação, medicamentos,
+        castrações, atendimento veterinário e uma nova oportunidade
+        para os nossos animais tutelados.
+        <br><br>
+        <strong>Escolha um valor e faça parte dessa corrente de cuidado. 💛</strong>
+      </p>
+    </section>
+
+    <section class="card">
+      <h2 class="amount">Doe R$ 2,00</h2>
+      <div class="qr" id="qr2"><img src="assets/pix_2.jpeg" alt="QR Code Pix de R$ 2,00"></div>
+      <div class="pix-hidden" id="key2">00020101021126510014br.gov.bcb.pix0114636691120001500211salve vidas52040000530398654042.005802BR5925ASSOCIACAO DE PROTECAO AO6008BRASILIA62190515IBQRsalvevidas26304E316</div>
+      <button onclick="copyPix('key2','msg2')">COPIAR CHAVE PIX</button>
+      <span class="copied" id="msg2"></span>
+    </section>
+
+    <section class="card">
+      <h2 class="amount">Doe R$ 5,00</h2>
+      <div class="qr" id="qr5"><img src="assets/pix_5.jpeg" alt="QR Code Pix de R$ 5,00"></div>
+      <div class="pix-hidden" id="key5">00020101021126510014br.gov.bcb.pix0114636691120001500211salve vidas52040000530398654045.005802BR5925ASSOCIACAO DE PROTECAO AO6008BRASILIA62190515IBQRsalvevidas563046369</div>
+      <button onclick="copyPix('key5','msg5')">COPIAR CHAVE PIX</button>
+      <span class="copied" id="msg5"></span>
+    </section>
+
+    <section class="card">
+      <h2 class="amount">Doe R$ 10,00</h2>
+      <div class="qr" id="qr10"><img src="assets/pix_10.jpeg" alt="QR Code Pix de R$ 10,00"></div>
+      <div class="pix-hidden" id="key10">00020101021126510014br.gov.bcb.pix0114636691120001500211salve vidas520400005303986540510.005802BR5925ASSOCIACAO DE PROTECAO AO6008BRASILIA62200516IBQRsalvevidas1063048393</div>
+      <button onclick="copyPix('key10','msg10')">COPIAR CHAVE PIX</button>
+      <span class="copied" id="msg10"></span>
+    </section>
+
+    <section class="card">
+      <h2 class="amount">Doe R$ 15,00</h2>
+      <div class="qr" id="qr15"><img src="assets/pix_15.jpeg" alt="QR Code Pix de R$ 15,00"></div>
+      <div class="pix-hidden" id="key15">00020101021126510014br.gov.bcb.pix0114636691120001500211salve vidas520400005303986540515.005802BR5925ASSOCIACAO DE PROTECAO AO6008BRASILIA62200516IBQRsalvevidas1563042246</div>
+      <button onclick="copyPix('key15','msg15')">COPIAR CHAVE PIX</button>
+      <span class="copied" id="msg15"></span>
+    </section>
+
+    <section class="card">
+      <h2 class="amount">Doe R$ 20,00</h2>
+      <div class="qr" id="qr20"><img src="assets/pix_20.jpeg" alt="QR Code Pix de R$ 20,00"></div>
+      <div class="pix-hidden" id="key20">00020101021126510014br.gov.bcb.pix0114636691120001500211salve vidas520400005303986540520.005802BR5925ASSOCIACAO DE PROTECAO AO6008BRASILIA62200516IBQRsalvevidas206304AC2A</div>
+      <button onclick="copyPix('key20','msg20')">COPIAR CHAVE PIX</button>
+      <span class="copied" id="msg20"></span>
+    </section>
+
+    <section class="card">
+      <h2 class="amount">Doe R$ 25,00</h2>
+      <div class="qr" id="qr25"><img src="assets/pix_25.jpeg" alt="QR Code Pix de R$ 25,00"></div>
+      <div class="pix-hidden" id="key25">00020101021126510014br.gov.bcb.pix0114636691120001500211salve vidas520400005303986540525.005802BR5925ASSOCIACAO DE PROTECAO AO6008BRASILIA62200516IBQRsalvevidas2563040DFF</div>
+      <button onclick="copyPix('key25','msg25')">COPIAR CHAVE PIX</button>
+      <span class="copied" id="msg25"></span>
+    </section>
+
+    <section class="card">
+      <h2 class="amount">Doe outro valor</h2>
+      <div class="qr" id="qrCustom"><img src="assets/pix_sem_valor.jpeg" alt="QR Code Pix para outro valor"></div>
+      <div class="pix-hidden" id="customKey">00020101021126510014br.gov.bcb.pix0114636691120001500211salve vidas5204000053039865802BR5925ASSOCIACAO DE PROTECAO AO6008BRASILIA62250521IBQRsalvevidasqqvalor63049B48</div>
+      <button onclick="copyPix('customKey','customMsg')">COPIAR CHAVE PIX</button>
+      <span class="copied" id="customMsg"></span>
+    </section>
+
+    <footer>
+      Adotar Marau • Um resgate de cada vez, uma nova história para contar. 🐾
+    </footer>
+  </main>
+
+  <script>
+    function copyText(text, msgId) {
+      const msg = document.getElementById(msgId);
+      const copy = async () => {
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch (e) {
+          const area = document.createElement("textarea");
+          area.value = text;
+          document.body.appendChild(area);
+          area.select();
+          document.execCommand("copy");
+          area.remove();
+        }
+        msg.textContent = "✓ Chave Pix copiada!";
+        setTimeout(() => msg.textContent = "", 2200);
+      };
+      copy();
+    }
+
+    function copyPix(keyId, msgId) {
+      const text = document.getElementById(keyId).innerText.trim();
+      copyText(text, msgId);
+    }
+  </script>
+</body>
+</html>
